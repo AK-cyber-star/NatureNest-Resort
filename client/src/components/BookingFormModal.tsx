@@ -93,7 +93,7 @@ export default function BookingFormModal({ isOpen, onClose }: {isOpen: boolean, 
       } else {
         alert("Failed to submit booking.");
       }
-    } catch (error) {
+    } catch (error:unknown) {
       alert("Error submitting booking.");
       console.log(error.message);
     }
