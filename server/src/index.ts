@@ -32,8 +32,6 @@ app.use(cors(corsOptions))
 app.use(helmet())
 app.use(express.json());
 
-app.options("*", cors(corsOptions));
-
 async function connectDB () {
     try {
         await mongoose.connect(env.dbUrl);
