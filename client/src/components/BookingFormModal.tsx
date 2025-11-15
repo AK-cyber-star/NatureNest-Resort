@@ -81,7 +81,7 @@ export default function BookingFormModal({ isOpen, onClose }: {isOpen: boolean, 
     if (!validate()) return;
 
     try {
-      const response = await fetch("http://localhost:8080/bookings", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/bookings`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

@@ -24,7 +24,7 @@ export default function AdminBookings() {
   useEffect(() => {
     async function fetchBookings() {
       try {
-        const res = await fetch("http://localhost:8080/bookings", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/bookings`, {
             headers: {
                 "x-api-key": process.env.NEXT_PUBLIC_API_KEY || "",
             }
