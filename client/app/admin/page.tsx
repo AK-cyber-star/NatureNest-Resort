@@ -47,52 +47,54 @@ export default function AdminBookings() {
   }, []);
   
   if (unauthorized) return <NotAuthorized />
-
   return (
-    <main className="max-w-5xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">Bookings Admin</h1>
+    <main className="max-w-5xl mx-auto p-4 sm:p-6">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Bookings Admin</h1>
 
       {loading ? (
-        <p>Loading bookings...</p>
+        <p className="text-center text-gray-600">Loading bookings...</p>
       ) : bookings.length === 0 ? (
-        <p>No bookings found.</p>
+        <p className="text-center text-gray-600">No bookings found.</p>
       ) : (
-        <table className="w-full text-left border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="border border-gray-300 px-4 py-2">Name</th>
-              <th className="border border-gray-300 px-4 py-2">Email</th>
-              <th className="border border-gray-300 px-4 py-2">Phone</th>
-              <th className="border border-gray-300 px-4 py-2">Guests</th>
-              <th className="border border-gray-300 px-4 py-2">Accommodation</th>
-              <th className="border border-gray-300 px-4 py-2">Start Date</th>
-              <th className="border border-gray-300 px-4 py-2">End Date</th>
-              <th className="border border-gray-300 px-4 py-2">Status</th>
-              <th className="border border-gray-300 px-4 py-2">Created</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bookings.map((b) => (
-              <tr key={b._id}>
-                <td className="border border-gray-300 px-4 py-2">{b.name}</td>
-                <td className="border border-gray-300 px-4 py-2">{b.email}</td>
-                <td className="border border-gray-300 px-4 py-2">{b.phone}</td>
-                <td className="border border-gray-300 px-4 py-2">{b.guests}</td>
-                <td className="border border-gray-300 px-4 py-2">{b.accommodationType}</td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {new Date(b.startDate).toLocaleDateString()}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {new Date(b.endDate).toLocaleDateString()}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">{b.status}</td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {new Date(b.createdAt).toLocaleString()}
-                </td>
+        // Make table container horizontally scrollable on small screens
+        <div className="overflow-x-auto border border-gray-300 rounded-lg">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm sm:text-base">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">Name</th>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">Email</th>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">Phone</th>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">Guests</th>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">Accommodation</th>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">Start Date</th>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">End Date</th>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">Status</th>
+                <th className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 text-left">Created</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {bookings.map((b) => (
+                <tr key={b._id} className="hover:bg-gray-50">
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.name}</td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 break-all">{b.email}</td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.phone}</td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.guests}</td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.accommodationType}</td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">
+                    {new Date(b.startDate).toLocaleDateString()}
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">
+                    {new Date(b.endDate).toLocaleDateString()}
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.status}</td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">
+                    {new Date(b.createdAt).toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </main>
   );
