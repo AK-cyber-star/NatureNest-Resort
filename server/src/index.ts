@@ -29,7 +29,7 @@ const corsOptions = {
 }
 
 app.use(express.json());
-app.use(cors(corsOptions))
+app.use(cors({origin: "*"}))
 app.use(helmet())
 
 async function connectDB () {
@@ -45,7 +45,6 @@ async function connectDB () {
 connectDB()
 
 app.use("/bookings", bookingsRoutes);
-app.options("*", cors(corsOptions));
 
 app.listen(PORT, () => {
     console.log("Server running on port" + PORT);
