@@ -1,4 +1,5 @@
 "use client";
+
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 
@@ -58,14 +59,14 @@ export default function Testimonials() {
         View what our customer&apos;s say
       </h2>
       <motion.div
-        className="mt-10 flex gap-6 justify-center"
+        className="mt-10 flex gap-6 justify-center py-4"
         animate={{ x: ["0%", "-50%"] }}
         transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
       >
         {[...testimonials, ...testimonials, ...testimonials].map((testimonial, idx) => (
           <div
             key={idx}
-            className="flex flex-col shadow-lg gap-3 rounded-xl justify-center items-center p-6 bg-white max-w-xs min-w-[280px]"
+            className="flex flex-col shadow-[0_2px_6px_1px_rgba(0,0,0,0.1)] gap-3 rounded-xl justify-center items-center p-6 max-w-xs min-w-[280px]"
           >
             <div className="w-20 h-20 overflow-hidden rounded-full">
               <Image
