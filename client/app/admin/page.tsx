@@ -76,7 +76,7 @@ export default function AdminBookings() {
               {bookings.map((b) => (
                 <tr key={b._id} className="hover:bg-gray-50">
                   <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.name}</td>
-                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2 break-all">{b.email}</td>
+                  <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.email}</td>
                   <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.phone}</td>
                   <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.guests}</td>
                   <td className="border border-gray-300 px-2 py-1 sm:px-4 sm:py-2">{b.accommodationType}</td>
